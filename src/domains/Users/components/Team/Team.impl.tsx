@@ -1,21 +1,36 @@
 import { css } from "@emotion/react";
+import Image from "next/image";
+
+import leaderImage from "@assets/images/Leader.jpeg";
+import artistImage from "@assets/images/Artist.jpeg";
+import tokImage from "@assets/images/tok.jpeg";
+import devImage from "@assets/images/Dev.jpeg";
 
 const Team: React.FC = () => {
     return (
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div css={titleStyle}>
                 Our Team
             </div>
             <div css={contextStyle}>
-                This is Team <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
-                Bla Bla BlaBla Bla Bla <br />
+                <div css={imageContainer}>
+                    <div css={imageStyle}>
+                        <Image src={leaderImage} />
+                        Leader
+                    </div>
+                    <div css={imageStyle}>
+                        <Image src={artistImage} />
+                        Artist
+                    </div>
+                    <div css={imageStyle}>
+                        <Image src={tokImage} />
+                        Tok Tok
+                    </div>
+                    <div css={imageStyle}>
+                        <Image src={devImage} />
+                        Foo
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -32,12 +47,23 @@ const titleStyle = css`
 
 const contextStyle = css`
     font-family: 'Courier New', Courier, monospace;
-    margin: 1%;
     color: #fff;
     display: flex;
     font-size: 1.3vw;
-    width: 100vw;
+    width: 70vw;
     text-align: left;
+    display: flex;
+`
+
+const imageContainer = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+`
+
+const imageStyle = css`
+    margin: 1%
 `
 
 export default Team

@@ -64,6 +64,7 @@ const roadmapContainer = css`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
 `
 
 const roadmapContextContainer = css`
