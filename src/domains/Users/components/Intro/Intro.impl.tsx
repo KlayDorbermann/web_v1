@@ -44,25 +44,25 @@ const defaultContainer = css`
 const bannerContainer = css`
     display: flex;
     background-color: #000;
-    width: 85vw;
+    width: 70vw;
     height: 15vh;
 `
 
 const titleStyle = css`
     width: 100vw;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3.5vw;
+    font-size: 2.9vw;
     display: flex;
     color: #fff;
     margin: 1%;
 `
 
 const contentContinaer = css`
-    width: 20vw;
+    width: 30vw;
     flex-direction: column;
     justify-content: end;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     display: flex;
     color: #fff;
     margin: 1%;
@@ -70,7 +70,7 @@ const contentContinaer = css`
 `
 
 const introImageContainer = css`
-    width: 85vw;
+    width: 70vw;
     /* height: 50vh; */
 `
 

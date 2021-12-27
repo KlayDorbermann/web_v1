@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import { ErrorBoundary } from "@domains/Errors";
-import { DefaultBackground, Intro, Story, Team } from "@domains/Users/components";
+import { DefaultBackground, Intro, Story, Team, Roadmap } from "@domains/Users/components";
 import { css } from "@emotion/react";
 
 const Home: NextPage = () => {
@@ -12,6 +12,7 @@ const Home: NextPage = () => {
                 <div css={sizingStyle}>
                     <Intro />
                     <Story />
+                    <Roadmap />
                     <Team />
                 </div>
                 {/* </DefaultBackground> */}
@@ -32,7 +33,7 @@ const defaultStyle = css`
 `
 
 const sizingStyle = css`
-    width: 85vw;
+    width: 70vw;
 `
 
 export default Home;
