@@ -5,6 +5,10 @@ import Link from "next/link";
 import introImage from "@assets/images/KlayDobermann_Intro.png";
 
 const Intro: React.FC = () => {
+    const readyMintOnClick = () => {
+        alert('Comming soon');
+    }
+
     return (
         <div css={defaultContainer}>
             <div css={bannerContainer}>
@@ -27,11 +31,11 @@ const Intro: React.FC = () => {
                 <div css={contentContinaer}>
                     Team
                 </div> */}
-                <Link href={'/mint/V2'}>
-                    <div css={contentContinaer}>
+                {/* <Link href={'/mint/V2'}> */}
+                    <div css={contentContinaer} onClick={readyMintOnClick}>
                         Mint
                     </div>
-                </Link>
+                {/* </Link> */}
             </div>
             <div css={introImageContainer}>
                 <Image
