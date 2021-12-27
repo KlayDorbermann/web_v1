@@ -1,29 +1,24 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { css } from "@emotion/react";
+import Head from "next/head";
 
-import { ErrorBoundary } from "@domains/Errors";
-import { Intro, Story, Team, Roadmap, Bottom } from "@domains/Users/components";
+import { V2Mint } from "@domains/Users/components";
 
-const Home: NextPage = () => {
+const V2MintPage: NextPage = () => {
     return (
-        <div css={defaultStyle}>
-            <ErrorBoundary>
+        <>
             <Head>
                 <link rel="header icon" href="/KlayDobermann_logo.png" />
                 <title>Klay Dobermann</title>
             </Head>
+            <div css={defaultStyle}>
                 <div css={sizingStyle}>
-                    <Intro />
-                    <Story />
-                    <Roadmap />
-                    <Team />
-                    <Bottom />
+                    <V2Mint />
                 </div>
-            </ErrorBoundary>
-        </div>
-    );
-};
+            </div>
+        </>
+    )
+}
 
 const defaultStyle = css`
     background-color: #000;
@@ -32,12 +27,10 @@ const defaultStyle = css`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* width: 100vw; */
-    /* height: 100vh; */
 `
 
 const sizingStyle = css`
     width: 70vw;
 `
 
-export default Home;
+export default V2MintPage

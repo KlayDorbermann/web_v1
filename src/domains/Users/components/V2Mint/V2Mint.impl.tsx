@@ -1,10 +1,13 @@
-import { css } from "@emotion/react";
-import Image from "next/image";
+import { css } from "@emotion/react"
 import Link from "next/link";
+import Image from "next/image";
 
-import introImage from "@assets/images/KlayDobermann_Intro.png";
+import mintImage from "@assets/images/V2MintImage.png";
+import { useV2Mint } from "../../hooks";
 
-const Intro: React.FC = () => {
+const V2Mint: React.FC = () => {
+    const { onClick } = useV2Mint();
+
     return (
         <div css={defaultContainer}>
             <div css={bannerContainer}>
@@ -33,11 +36,8 @@ const Intro: React.FC = () => {
                     </div>
                 </Link>
             </div>
-            <div css={introImageContainer}>
-                <Image
-                    src={introImage}
-                    alt="KlayDobermann_Intro"
-                />
+            <div css={mintImageStyle} onClick={onClick}>
+                <Image src={mintImage} />
             </div>
         </div>
     )
@@ -46,6 +46,8 @@ const Intro: React.FC = () => {
 const defaultContainer = css`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 const bannerContainer = css`
@@ -77,8 +79,9 @@ const contentContinaer = css`
     cursor: pointer;
 `
 
-const introImageContainer = css`
-    width: 70vw;
+const mintImageStyle = css`
+    width: 50vw;
+    cursor: pointer;
 `
 
-export default Intro;
+export default V2Mint
