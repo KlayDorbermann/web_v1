@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { css } from "@emotion/react";
 import Head from "next/head";
 
-import { V2Mint } from "@domains/Users/components";
+import { V2Mint, Bottom } from "@domains/Users/components";
 
 const V2MintPage: NextPage = () => {
     return (
@@ -14,6 +14,7 @@ const V2MintPage: NextPage = () => {
             <div css={defaultStyle}>
                 <div css={sizingStyle}>
                     <V2Mint />
+                    <Bottom />
                 </div>
             </div>
         </>
