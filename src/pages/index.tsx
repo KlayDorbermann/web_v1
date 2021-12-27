@@ -9,10 +9,10 @@ const Home: NextPage = () => {
     return (
         <div css={defaultStyle}>
             <ErrorBoundary>
-            <Head>
-                <link rel="header icon" href="/KlayDobermann_logo.png" />
-                <title>Klay Dobermann</title>
-            </Head>
+                <Head>
+                    <link rel="header icon" href="/KlayDobermann_logo.png" />
+                    <title>Klay Dobermann</title>
+                </Head>
                 <div css={sizingStyle}>
                     <Intro />
                     <Story />
@@ -34,10 +34,10 @@ const defaultStyle = css`
     text-align: center;
     /* width: 100vw; */
     /* height: 100vh; */
-`
+`;
 
 const sizingStyle = css`
     width: 70vw;
-`
+`;
 
 export default Home;

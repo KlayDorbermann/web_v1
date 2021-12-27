@@ -18,8 +18,8 @@ const V2MintPage: NextPage = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 const defaultStyle = css`
     background-color: #000;
@@ -28,10 +28,10 @@ const defaultStyle = css`
     flex-direction: column;
     align-items: center;
     text-align: center;
-`
+`;
 
 const sizingStyle = css`
     width: 70vw;
-`
+`;
 
-export default V2MintPage
+export default V2MintPage;
