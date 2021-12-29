@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import leaderImage from "@assets/images/Leader.jpeg";
 import artistImage from "@assets/images/Artist.jpeg";
-import tokImage from "@assets/images/tok.jpeg";
+import tokImage from "@assets/images/Tok.jpeg";
 import devImage from "@assets/images/Dev.jpeg";
 
 const Team: React.FC = () => {
@@ -16,19 +16,19 @@ const Team: React.FC = () => {
                 <div css={imageContainer}>
                     <div css={imageStyle}>
                         <Image src={leaderImage} />
-                        Leader
+                        Leader / KDM
                     </div>
                     <div css={imageStyle}>
                         <Image src={artistImage} />
-                        Artist
+                        Artist / Doguro
                     </div>
                     <div css={imageStyle}>
                         <Image src={tokImage} />
-                        Tok Tok
+                        Director / Tok Tok
                     </div>
                     <div css={imageStyle}>
                         <Image src={devImage} />
-                        Foo
+                        Developer / Foo
                     </div>
                 </div>
             </div>
