@@ -24,7 +24,7 @@ const Team: React.FC = () => {
                     </div>
                     <div css={imageStyle}>
                         <Image src={tokImage} />
-                        Director / Tok Tok
+                        Director / Toktok
                     </div>
                     <div css={imageStyle}>
                         <Image src={devImage} />
