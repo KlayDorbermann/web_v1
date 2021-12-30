@@ -10,7 +10,7 @@ export default function useV2Mint() {
         const result = await klaytn.enable()
         alert(`Connected ${result[0]}`)
         try {
-            const mintResult = await new UserService().mintV2()
+            const mintResult = await new UserService().mintV2(result[0])
             if (mintResult === true) {
                 alert('V2 minting success!!!')
             }
