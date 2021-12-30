@@ -27,12 +27,12 @@ const IntroView: React.FC<IIntroView.IProps> = ({ introImage, onClick }) => {
             <div css={contentContinaer}>
                 Team
             </div> */}
-                {/* <Link href={'/mint/V2'}> */}
-                    <div css={contentContinaer} onClick={onClick}>
-                    {/* <div css={contentContinaer}> */}
+                <Link href={'/mint/V2'}>
+                    {/* <div css={contentContinaer} onClick={onClick}> */}
+                    <div css={contentContinaer}>
                         Mint
                     </div>
-                {/* </Link> */}
+                </Link>
             </div>
             <div css={introImageContainer}>
                 <Image
