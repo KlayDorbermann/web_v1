@@ -1,6 +1,25 @@
+import { useEffect, useState } from "react";
 import { UserService } from "../services/user.service";
 
 export default function useV2Mint() {
+    const [totalSupply, setTotalSupply] = useState(0);
+    const [address, setAddress] = useState('');
+
+    const connectKaikas = async () => {
+        const klaytn: any | undefined = (window as any).klaytn;
+        if (klaytn === undefined) {
+            alert("Please install kaikas first");
+        }
+        const result = await klaytn.enable();
+        setAddress(result[0]);
+    }
+
+    const getTotalSupply = async () => {
+        const total = await new UserService().getTotalSupply();
+        const mintCount = 4000;
+        setTotalSupply(mintCount - total);
+    };
+
     const timeValidate = async () => {
         // const curr = new Date();
         // const utc = curr.getTime() + curr.getTimezoneOffset() * 60 * 1000;
@@ -87,7 +106,6 @@ export default function useV2Mint() {
                 alert("Please install kaikas first");
             }
             const result = await klaytn.enable();
-            alert(`Connected ${result[0]}`);
             try {
                 const mintResult = await new UserService().mintV2(
                     result[0],
@@ -104,7 +122,14 @@ export default function useV2Mint() {
         }
     };
 
+    useEffect(() => {
+        getTotalSupply();
+        connectKaikas();
+    }, []);
+
     return {
         onClick,
+        totalSupply,
+        address,
     };
 }
