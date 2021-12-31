@@ -26,7 +26,7 @@ export class CaverJsService {
         return totlaSupply;
     }
 
-    async mintV2(address: string, tokenId: string) {
+    async mintV2(address: string, tokenId: string, pay: string) {
         const Caver: any | undefined = (window as any).caver;
         const abi = [
             {
@@ -63,7 +63,7 @@ export class CaverJsService {
                 from: address,
                 to: process.env.NEXT_PUBLIC_V2_ADDRESS,
                 gas: "8000000",
-                value: Caver.utils.toPeb("0.1", "KLAY"),
+                value: Caver.utils.toPeb(pay, "KLAY"),
             });
         if (mintResult.status === true) return true;
         return false;
