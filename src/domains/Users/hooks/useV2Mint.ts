@@ -99,8 +99,9 @@ export default function useV2Mint() {
             } catch (error) {
                 alert(error);
             }
+        } else {
+            alert("It's not yet time to do mint.");
         }
-        alert("It's not yet time to do mint.");
     };
 
     return {
