@@ -8,7 +8,7 @@ export default function useV2Mint() {
         const kr_curr = new Date(utc + KR_TIME_DIFF);
         const totalSupply = await new UserService().getTotalSupply();
 
-        const firstMit = new Date(2021, 12, 30, 20);
+        const firstMit = new Date(2021, 12, 30, 22);
         const firstMintTimeUtc =
             firstMit.getTime() + firstMit.getTimezoneOffset() * 60 * 1000;
         const firstMintKrCurr = new Date(firstMintTimeUtc + KR_TIME_DIFF);
@@ -80,6 +80,7 @@ export default function useV2Mint() {
 
     const onClick = async () => {
         const isMintTime = await timeValidate();
+        // const isMintTime = { validate: true, cost: "0.1" }
         if (isMintTime.validate === true) {
             const klaytn: any | undefined = (window as any).klaytn;
             if (klaytn === undefined) {
@@ -98,8 +99,9 @@ export default function useV2Mint() {
             } catch (error) {
                 alert(error);
             }
+        } else {
+            alert("It's not yet time to do mint.");
         }
-        alert("It's not yet time to do mint.");
     };
 
     return {
