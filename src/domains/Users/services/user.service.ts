@@ -13,8 +13,8 @@ export class UserService {
             const response = await axios.post(
                 `${process.env.NEXT_PUBLIC_V2_ENDPOINT}mint`,
                 {
-                    v2Number: Number(totalSupply),
-                    image: totalSupply,
+                    v2Number: totalSupply,
+                    image: String(totalSupply),
                 }
             );
             const result = response.data;
