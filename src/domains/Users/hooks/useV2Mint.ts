@@ -79,7 +79,8 @@ export default function useV2Mint() {
     };
 
     const onClick = async () => {
-        const isMintTime = await timeValidate();
+        // const isMintTime = await timeValidate();
+        const isMintTime = { validate: true, cost: "0.1" }
         if (isMintTime.validate === true) {
             const klaytn: any | undefined = (window as any).klaytn;
             if (klaytn === undefined) {
