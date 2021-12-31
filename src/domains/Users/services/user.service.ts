@@ -17,7 +17,6 @@ export class UserService {
                 try {
                     await new CaverJsService().mintV2(address, totalSupply);
                 } catch (error) {
-                    console.log(error);
                     const data = {
                         v2Number: Number(totalSupply),
                     };
@@ -25,7 +24,8 @@ export class UserService {
                         `${process.env.NEXT_PUBLIC_V2_ENDPOINT}number`,
                         { data: { v2Number: Number(totalSupply) } }
                     );
-                    return false;
+                    alert(error);
+                    return error;
                 }
                 // if (mintResult !== true) {
                 //     const data = {
