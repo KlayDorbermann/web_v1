@@ -6,7 +6,7 @@ import mintImage from "@assets/images/V2MintImage.png";
 import { useV2Mint } from "../../hooks";
 
 const V2Mint: React.FC = () => {
-    const { onClick } = useV2Mint();
+    const { onClick, totalSupply, address } = useV2Mint();
 
     return (
         <div css={defaultContainer}>
@@ -35,6 +35,12 @@ const V2Mint: React.FC = () => {
                         Mint
                     </div>
                 </Link>
+            </div>
+            <div css={remainingDobermanStyle}>
+                Remaining Dobermann : {totalSupply}
+            </div>
+            <div css={addressStyle}>
+                Connect Wallet : {address}
             </div>
             <div css={mintImageStyle} onClick={onClick}>
                 <Image src={mintImage} />
@@ -73,6 +79,30 @@ const contentContinaer = css`
     justify-content: end;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2vw;
+    display: flex;
+    color: #fff;
+    margin: 1%;
+    cursor: pointer;
+`
+
+const remainingDobermanStyle = css`
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5vw;
+    display: flex;
+    color: #fff;
+    margin: 1%;
+    cursor: pointer;
+`;
+
+const addressStyle = css`
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8vw;
     display: flex;
     color: #fff;
     margin: 1%;
