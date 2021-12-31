@@ -2,20 +2,22 @@ export class CaverJsService {
     async getV2TotalSupply() {
         const Caver: any | undefined = (window as any).caver;
         // console.log(new Caver.klay.Contract(abi, process.env.NEXT_PUBLIC_V2_ADDRESS).method.totalSupply())
-        const abi = [{
-            constant: true,
-            inputs: [],
-            name: "totalSupply",
-            outputs: [
-                {
-                    name: "",
-                    type: "uint256",
-                },
-            ],
-            payable: false,
-            stateMutability: "view",
-            type: "function",
-        }];
+        const abi = [
+            {
+                constant: true,
+                inputs: [],
+                name: "totalSupply",
+                outputs: [
+                    {
+                        name: "",
+                        type: "uint256",
+                    },
+                ],
+                payable: false,
+                stateMutability: "view",
+                type: "function",
+            },
+        ];
         const contract = new Caver.klay.Contract(
             abi,
             process.env.NEXT_PUBLIC_V2_ADDRESS
@@ -24,9 +26,9 @@ export class CaverJsService {
         return totlaSupply;
     }
 
-    async mintV2(address: string, tokenId: string) {
+    async mintV2(address: string, tokenId: string, pay: string) {
         const Caver: any | undefined = (window as any).caver;
-        const data = Caver.klay.abi.encodeFunctionCall(
+        const abi = [
             {
                 constant: false,
                 inputs: [
@@ -38,36 +40,32 @@ export class CaverJsService {
                         name: "tokenId",
                         type: "uint256",
                     },
-                    {
-                        name: "imageUrl",
-                        type: "string",
-                    },
                 ],
-                name: "mint",
+                name: "mintWithTokenURI",
                 outputs: [
                     {
                         name: "",
                         type: "bool",
                     },
                 ],
-                payable: false,
-                stateMutability: "nonpayable",
+                payable: true,
+                stateMutability: "payable",
                 type: "function",
             },
-            [address, String(tokenId), String(tokenId)]
+        ];
+        const contract = new Caver.klay.Contract(
+            abi,
+            process.env.NEXT_PUBLIC_V2_ADDRESS
         );
-        const result = await Caver.klay.sendTransaction({
-            type: "SMART_CONTRACT_EXECUTION",
-            from: address,
-            to: process.env.NEXT_PUBLIC_V2_ADDRESS,
-            gas: "8000000",
-            value: Caver.utils.toPeb('1', 'KLAY'),
-            data,
-        });
-        const trxResult = await Caver.klay.getTransactionReceipt(
-            result.senderTxHash
-        );
-        if (trxResult.status === true) return true;
+        const mintResult = await contract.methods
+            .mintWithTokenURI(address, Number(tokenId))
+            .send({
+                from: address,
+                to: process.env.NEXT_PUBLIC_V2_ADDRESS,
+                gas: "8000000",
+                value: Caver.utils.toPeb(pay, "KLAY"),
+            });
+        if (mintResult.status === true) return true;
         return false;
     }
 }
