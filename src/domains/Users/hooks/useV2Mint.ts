@@ -99,7 +99,7 @@ export default function useV2Mint() {
                 alert(error);
             }
         }
-        alert("This is not Mint Time");
+        alert("It's not yet time to do mint.");
     };
 
     return {
