@@ -14,7 +14,7 @@ export class UserService {
                 `${process.env.NEXT_PUBLIC_V2_ENDPOINT}mint`,
                 {
                     v2Number: totalSupply,
-                    image: String(totalSupply),
+                    image: `https://v2image.s3.ap-northeast-2.amazonaws.com/test${totalSupply}.png`,
                 }
             );
             const result = response.data;
