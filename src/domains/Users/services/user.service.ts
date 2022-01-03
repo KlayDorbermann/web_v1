@@ -18,28 +18,30 @@ export class UserService {
                 }
             );
             const result = response.data;
-            if (result === true) {
-                try {
-                    await new CaverJsService().mintV2(
-                        address,
-                        String(totalSupply),
-                        cost
-                    );
-                } catch (error) {
-                    const data = {
-                        v2Number: Number(totalSupply),
-                    };
-                    await axios.delete(
-                        `${process.env.NEXT_PUBLIC_V2_ENDPOINT}number`,
-                        { data: { v2Number: Number(totalSupply) } }
-                    );
-                    alert(error);
-                    return error;
-                }
+            // if (typeof result) {
+            try {
+                await new CaverJsService().mintV2(
+                    address,
+                    String(result),
+                    cost
+                );
+            } catch (error) {
+                const data = {
+                    v2Number: Number(totalSupply),
+                };
+                await axios.delete(
+                    `${process.env.NEXT_PUBLIC_V2_ENDPOINT}number`,
+                    { data: { v2Number: Number(totalSupply) } }
+                );
+                alert(error);
+                return error;
             }
+            // }
             return true;
         } catch (error) {
-            throw new Error(`${error}`);
+            throw new Error(
+                `지금 사용된 번호는 이미 사용된 번호 입니다. 번호 : ${totalSupply}`
+            );
         }
     }
 }
