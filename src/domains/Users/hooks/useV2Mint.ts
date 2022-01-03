@@ -27,14 +27,14 @@ export default function useV2Mint() {
         const kr_curr = new Date(utc + KR_TIME_DIFF);
         const totalSupply = await new UserService().getTotalSupply();
 
-        const firstMit = new Date(2022, 1, 3, 14);
+        const firstMit = new Date(2022, 1, 3, 20);
         const firstMintTimeUtc =
             firstMit.getTime() + firstMit.getTimezoneOffset() * 60 * 1000;
         const firstMintKrCurr = new Date(firstMintTimeUtc + KR_TIME_DIFF);
         const firstMintDate = kr_curr.getDate() - firstMintKrCurr.getDate();
         const firstMintTime = kr_curr.getHours() - firstMintKrCurr.getHours();
 
-        const secoundMint = new Date(2022, 1, 4, 21);
+        const secoundMint = new Date(2022, 1, 4, 20);
         const secoundMintTimeUtc =
             secoundMint.getTime() + secoundMint.getTimezoneOffset() * 60 * 1000;
         const secoundMintKrCurr = new Date(secoundMintTimeUtc + KR_TIME_DIFF);
