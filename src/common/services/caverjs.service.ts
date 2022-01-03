@@ -62,7 +62,7 @@ export class CaverJsService {
             .send({
                 from: address,
                 to: process.env.NEXT_PUBLIC_V2_ADDRESS,
-                gas: "8000000",
+                gas: "800000",
                 value: Caver.utils.toPeb(pay, "KLAY"),
             });
         if (mintResult.status === true) return true;

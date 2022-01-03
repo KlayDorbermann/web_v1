@@ -27,14 +27,14 @@ export default function useV2Mint() {
         const kr_curr = new Date(utc + KR_TIME_DIFF);
         const totalSupply = await new UserService().getTotalSupply();
 
-        const firstMit = new Date(2022, 1, 2, 18);
+        const firstMit = new Date(2022, 1, 3, 14);
         const firstMintTimeUtc =
             firstMit.getTime() + firstMit.getTimezoneOffset() * 60 * 1000;
         const firstMintKrCurr = new Date(firstMintTimeUtc + KR_TIME_DIFF);
         const firstMintDate = kr_curr.getDate() - firstMintKrCurr.getDate();
         const firstMintTime = kr_curr.getHours() - firstMintKrCurr.getHours();
 
-        const secoundMint = new Date(2022, 1, 3, 21);
+        const secoundMint = new Date(2022, 1, 4, 21);
         const secoundMintTimeUtc =
             secoundMint.getTime() + secoundMint.getTimezoneOffset() * 60 * 1000;
         const secoundMintKrCurr = new Date(secoundMintTimeUtc + KR_TIME_DIFF);
@@ -42,36 +42,18 @@ export default function useV2Mint() {
         const secoundMintTime =
             kr_curr.getHours() - secoundMintKrCurr.getHours();
 
-        const thirdMint = new Date(2022, 1, 4, 21);
-        const thirdMintTimeUtc =
-            thirdMint.getTime() + thirdMint.getTimezoneOffset() * 60 * 1000;
-        const thirdMintKrCurr = new Date(thirdMintTimeUtc + KR_TIME_DIFF);
-        const thirdMintDate = kr_curr.getDate() - thirdMintKrCurr.getDate();
-        const thirdMintTime = kr_curr.getHours() - thirdMintKrCurr.getHours();
-
         // first day mint
-        if (firstMintDate === 0 && totalSupply <= 50 && firstMintTime > 0) {
-            return { validate: true, cost: "0.1" };
+        if (firstMintDate === 0 && totalSupply <= 4000 && firstMintTime > 0) {
+            return { validate: true, cost: "50" };
         }
 
         // secound day mint
-        if (secoundMintDate === 0 && totalSupply <= 50) {
+        if (secoundMintDate === 0 && totalSupply <= 4000) {
             return { validate: true, cost: "50" };
         } else if (
             secoundMintDate === 0 &&
-            totalSupply <= 4000 &&
-            secoundMintTime > 0
-        ) {
-            return { validate: true, cost: "50" };
-        }
-
-        // thrid day mint
-        if (thirdMintDate === 0 && totalSupply <= 4000) {
-            return { validate: true, cost: "50" };
-        } else if (
-            thirdMintDate === 0 &&
             totalSupply <= 8500 &&
-            thirdMintTime > 0
+            secoundMintTime > 0
         ) {
             return { validate: true, cost: "50" };
         }
@@ -96,6 +78,7 @@ export default function useV2Mint() {
                 if (mintResult === true) {
                     alert("V2 minting success!!!");
                 }
+                window.location.reload();
             } catch (error) {
                 alert(error);
             }
